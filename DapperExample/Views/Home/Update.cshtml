@@ -1,0 +1,29 @@
+﻿@model List<Student>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Departmant</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <form method="post" action="/Home/Update/@item.Id">
+                    <tr>
+                        <td><input type="text" name="FirstName" value="@item.FirstName" /></td>
+                        <td><input type="text" name="LastName" value="@item.LastName" /></td>
+                        <td><input type="text"  name="Departmant" value="@item.Departmant" /></td>
+                        <td><input type="submit" class="btn btn-primary" value="Update" /></td>
+                    </tr>
+                </form>
+            }
+
+        </tbody>
+    </table>
+
+</div>

@@ -19,7 +19,7 @@ namespace DapperExample.Dapper.Repositories
             using (var connection = new SqlConnection(sqlConnectionString))
             {
                 connection.Open();
-                var affectedRows = connection.Execute("Insert into Student (FirstName,LastName,Departmant) values (@FirstName, @LastName,@Departmant)", new { FirstName = student.FirstName, LastName = student.LastName, DepartmantName = student.Departmant });
+                var affectedRows = connection.Execute("Insert into Student (FirstName,LastName,Departmant) values (@FirstName, @LastName,@Departmant)", new { FirstName = student.FirstName, LastName = student.LastName, Departmant = student.Departmant });
                 connection.Close();
                 
             }

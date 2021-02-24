@@ -22,9 +22,50 @@ namespace DapperExample.Controllers
         }
         public IActionResult Index()
         {
+
             return View(_studentRepository.GetAll());
         }
+        [HttpGet]
+        public IActionResult Add()
+        {
 
-        
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Add(Student student)
+        {
+            _studentRepository.Add(student);
+
+            return RedirectToAction("Index", "Home");
+        }
+        [HttpGet]
+        public IActionResult Delete()
+        {
+            return View(_studentRepository.GetAll());
+            
+        }
+        [HttpPost]
+        public IActionResult Delete(Student student)
+        {
+            _studentRepository.Delete(student.Id);
+
+            return RedirectToAction("Delete", "Home");
+        }
+        [HttpGet]
+        public IActionResult Update()
+        {
+            return View(_studentRepository.GetAll());
+
+        }
+
+        [HttpPost]
+        public IActionResult Update(Student student)
+        {
+            _studentRepository.Update(student);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+
     }
 }
